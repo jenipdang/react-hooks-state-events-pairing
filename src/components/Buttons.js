@@ -16,7 +16,7 @@ const Buttons = ({ upvotes, downvotes }) => {
     return (
         <div>
             <button style={{margin: "5px"}} onClick={handleUpVote}>{upCount} 👍</button>
-            <button style={{margin: "5px"}}onClick={() => setDownCount(downCount + 1)}>{downCount} 👎</button>
+            <button style={{margin: "5px"}} onClick={() => setDownCount(downCount + 1)}>{downCount} 👎</button>
         </div>
     )
 }

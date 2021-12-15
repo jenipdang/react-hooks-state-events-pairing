@@ -1,13 +1,19 @@
-import React from 'react'
+import React, { useState }from 'react'
 import Comment from './Comment'
 
-const Comments = ({comments}) => {
 
-    const commentsList = comments.map((comment) => (
-        <Comment key={comment.id} user={comment.user} userComment={comment.comment} />
+
+const Comments = ({comments, onDelete }) => {
+  
+
+   const commentsList = comments.map((comment) => (
+        <Comment key={comment.id} id={comment.id} user={comment.user} userComment={comment.comment} onDelete={onDelete}/>
     ))
 
     const totalComments = comments.length
+
+    // const commentsToDisplay = comments
+    // .filter((comment) => comment.user.toLowerCase().includes(search.toLowerCase()))
 
     return (
         <div>
@@ -17,5 +23,8 @@ const Comments = ({comments}) => {
     )
 }
 
+
+// - Add a search bar to search comments by username
+// - Add a sorting feature to sort the comments
 
 export default Comments
