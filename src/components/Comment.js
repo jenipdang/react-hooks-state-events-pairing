@@ -13,7 +13,7 @@ function Comment({ id, user, userComment, onDelete }) {
     function handleDislikeComment() {
         setDislikeComment((dislikeComment) => dislikeComment + 1)    
     }
-    
+
     
     return (
         <div className="comment-list">

@@ -1,24 +1,28 @@
 import React, { useState }from 'react'
 import Comment from './Comment'
 
+const Comments = ({ comments, onDelete }) => {
+   const [searchUser, setSearchUser] = useState("")
 
-
-const Comments = ({comments, onDelete }) => {
-  
-
-   const commentsList = comments.map((comment) => (
+   const commentsList = comments.filter((comments) => {
+       if (searchUser === "") {
+           return comments
+       } else if (comments.user.toLocaleLowerCase().includes(searchUser.toLocaleLowerCase())) {
+           return comments
+       }
+   }).map((comment) => {
+       return (
         <Comment key={comment.id} id={comment.id} user={comment.user} userComment={comment.comment} onDelete={onDelete}/>
-    ))
+       )})
 
     const totalComments = comments.length
 
-    // const commentsToDisplay = comments
-    // .filter((comment) => comment.user.toLowerCase().includes(search.toLowerCase()))
 
     return (
         <div>
             <h1>{totalComments} Comments</h1>
-           <div id="comments">{commentsList}</div>
+            <input type="text" placeholder="Search username..." onChange={(e) => {setSearchUser(e.target.value)}} value={searchUser}/>
+            <div id="comments">{commentsList}</div>
         </div>
     )
 }

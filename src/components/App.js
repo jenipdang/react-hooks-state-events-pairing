@@ -20,7 +20,7 @@ function App() {
   
 
   const deleteComment = (id) => {
-    const updatedComment = newComments.filter((comment) => comment.id !== id)
+    const updatedComment = newComments.filter(comment => comment.id !== id)
     setNewComments(updatedComment)
   }
  
