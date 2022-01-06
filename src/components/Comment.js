@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { FaTimes } from 'react-icons/fa'
 
-function Comment({ id, user, userComment, onDelete }) {
+function Comment({ id, user, userComment, handleDelete }) {
 
     // - Add upvote/downvote buttons to each comment
     const [likeComment, setLikeComment] = useState(0)
@@ -18,7 +18,7 @@ function Comment({ id, user, userComment, onDelete }) {
     return (
         <div className="comment-list">
             <h3>
-                {user} <FaTimes style={{ color: 'red', cursor: 'pointer'}} onClick={() => onDelete(id)} />
+                {user} <FaTimes style={{ color: 'red', cursor: 'pointer'}} onClick={() => handleDelete(id)} />
             </h3>
             <p>{userComment}</p>
             <button style={{margin: "5px"}} onClick={handleLikeComment}>{likeComment} 👍</button>

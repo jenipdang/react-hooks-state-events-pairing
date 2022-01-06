@@ -7,7 +7,7 @@ import { useState } from 'react'
 function App() {
   // console.log("Here's your data:", video);
   const [isHide, setIsHide] = useState(true)
-  const [newComments, setNewComments] = useState("")
+  // const [comments, setComments] = useState("")
   // const [comments, setComments] = useState([])
 
   // function handleHideComment() {
@@ -19,10 +19,9 @@ function App() {
   // Add a "Remove Comment" button to delete comments from the pageAdd a "Remove Comment" button to delete comments from the page
   
 
-  const deleteComment = (id) => {
-    const updatedComment = newComments.filter(comment => comment.id !== id)
-    setNewComments(updatedComment)
-  }
+  // const deleteComment = (id) => {
+  //  setComments(comments.filter((comment) => comment.id !== id))
+  // }
  
   return (
     <div className="App">
@@ -39,7 +38,7 @@ function App() {
         <Buttons upvotes={video.upvotes} downvotes={video.downvotes}/>
         {/* Show Hide Button */}
         <button onClick={() => setIsHide(!isHide)} style={{margin: "10px", padding: "5px"}}>{isHide ? "Hide" : "Show"} Comments</button>
-          {isHide ? <Comments comments={video.comments} newComments={newComments} onDelete={deleteComment}/> : null }
+          {isHide ? <Comments comments={video.comments} /> : null }
     </div>
   );
 }
